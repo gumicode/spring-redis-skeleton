@@ -1,7 +1,2 @@
-GET http://localhost:8080/person
+GET http://localhost:8080/order?id=1
 Content-Type: application/json
-
-{
-  "id": 1,
-  "name": "bsk2"
-}

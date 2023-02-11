@@ -1,7 +1,20 @@
-POST http://localhost:8080/person
+POST http://localhost:8080/order
 Content-Type: application/json
 
 {
-  "id": 1,
-  "name": "bsk2"
+  "id": 3,
+  "user": "홍길동2",
+  "vendor": "서초점2",
+  "items": [
+    {
+      "id": 1,
+      "name": "코카콜라",
+      "quantity": 1
+    },
+    {
+      "id": 2,
+      "name": "펩시",
+      "quantity": 2
+    }
+  ]
 }
