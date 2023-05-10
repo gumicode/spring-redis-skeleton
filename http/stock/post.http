@@ -1,0 +1,7 @@
+POST http://localhost:8080/order_count
+Content-Type: application/json
+
+{
+  "id": 1,
+  "count": 50
+}
