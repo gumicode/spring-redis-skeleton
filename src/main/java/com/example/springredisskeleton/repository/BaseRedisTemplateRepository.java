@@ -3,6 +3,7 @@ package com.example.springredisskeleton.repository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.RedisHash;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.util.Assert;
 
 import java.util.Collection;
@@ -16,7 +17,7 @@ public abstract class BaseRedisTemplateRepository {
     private final Class<?> targetClass;
     private final RedisTemplate<String, String> redisTemplate;
 
-    public BaseRedisTemplateRepository(final Class<?> targetClass, final RedisTemplate<String, String> redisTemplate) {
+    public BaseRedisTemplateRepository(final Class<?> targetClass, final StringRedisTemplate redisTemplate) {
         Assert.notNull(targetClass, "Domain class must not be null!");
         Assert.notNull(redisTemplate, "redisTemplate class must not be null!");
         RedisHash annotation = targetClass.getAnnotation(RedisHash.class);

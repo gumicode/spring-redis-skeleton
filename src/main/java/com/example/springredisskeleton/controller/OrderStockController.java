@@ -18,7 +18,7 @@ public class OrderStockController {
     @GetMapping("/order_count/{id}")
     public StockCount get(@PathVariable Long id) {
         log.info("{}", id);
-        return stockCountRepository.findById(id).get();
+        return stockCountRepository.findById(id).orElse(null);
     }
 
     @PostMapping("/order_count")
@@ -31,5 +31,11 @@ public class OrderStockController {
     public void increment(@RequestBody StockCount stockCount) {
         log.info("{}", stockCount);
         stockCountRepository.incrementCount(stockCount.getId(), stockCount.getCount());
+    }
+
+    @DeleteMapping("/order_count/{id}")
+    public void delete(@PathVariable Long id) {
+        log.info("{}", id);
+         stockCountRepository.deleteById(id);
     }
 }
